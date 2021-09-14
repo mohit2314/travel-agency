@@ -44,12 +44,22 @@ left: 40px;
 height: 35px;
 }
 
+.text-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* background-color: red; */
+    /* this translate will be in respect to element itself instead of parent */
+    transform: translate(-50%,-50%);
+}
+
 .heading-primary{
 color: #fff;
 text-transform: uppercase;
 }
 
 .heading-primary-main{
+/* block occupies complete row width & we get line breaks after block element */
 display: block;
 font-size: 60px;
 font-weight: 400;
@@ -70,3 +80,4 @@ letter-spacing: 36px;
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
