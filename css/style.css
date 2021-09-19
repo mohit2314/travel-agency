@@ -59,12 +59,13 @@ color: #fff;
 text-transform: uppercase;
 /* fix to remove shaking at end of animation */
 backface-visibility: hidden;
+margin-bottom: 60px;
 }
 
 .heading-primary-main{
 /* block occupies complete row width & we get line breaks after block element */
 display: block;
-text-align: center;
+/* text-align: center; */
 font-size: 60px;
 font-weight: 400;
 letter-spacing: 36px;
@@ -92,6 +93,7 @@ animation:moveInLeft 1s ease-out; */
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 @keyframes moveInLeft {
@@ -132,4 +134,35 @@ transform: translateX(-10px);
         transform: translate(0);
 
     }
+}
+
+/* pseudo elements are special states/conditions of selector */
+/* visited is the state which user comes back on the btn which has been already clicked */
+.btn:link,
+.btn:visited
+{
+    border-radius: 100px;
+text-transform: uppercase;
+text-decoration: none;
+padding: 15px 40px;
+display: inline-block;  
+/* inline-block to have its own row space */
+/* inline-block elements are treated as if they are text */
+transition: all 0.2s;
+}
+
+.btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+/* active is the clicked state */
+.btn:active{
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+
+}
+.btn-white{
+    background-color: #fff;
+    color: #777;
+
 }
