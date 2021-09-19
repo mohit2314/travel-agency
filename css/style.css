@@ -136,6 +136,26 @@ transform: translateX(-10px);
     }
 }
 
+@keyframes moveInBottom {
+    0% {
+        /* at begining of animation we want element to be invisible */
+opacity: 0;
+transform: translateY(30px);
+/* Y-axis is from top to bottom */
+    }
+
+    80% {
+transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        /* at end we want element to be on same position */
+        transform: translate(0);
+
+    }
+}
+
 /* pseudo elements are special states/conditions of selector */
 /* visited is the state which user comes back on the btn which has been already clicked */
 .btn:link,
@@ -149,6 +169,8 @@ display: inline-block;
 /* inline-block to have its own row space */
 /* inline-block elements are treated as if they are text */
 transition: all 0.2s;
+position: relative;
+/* in order to position after pseudo element */
 }
 
 .btn:hover{
@@ -165,4 +187,33 @@ transition: all 0.2s;
     background-color: #fff;
     color: #777;
 
+}
+
+.btn::after{
+    /* we always need to define these 2 prop */
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+}
+
+.btn-white::after{
+    background-color: #fff;
+}
+
+.btn:hover::after{
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated{
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards;
+    /* fill-mode backwards will automtically apply styles of 0% animation before the animation starts */
 }
